@@ -1,13 +1,17 @@
 const http = require('http');
 
 const server = new http.Server();
+const handler = require('./handler');
 
-let i = 0;
+/*
+1. core_modules/handler
+2. ./node_modules/handler
+  ../node_modules/handler
+  ../../node_modules/handler
+3. NODE_PATH=.
+*/
 
-server.on('request', (req, res) => {
-    i++;
-    res.end(`Hello world. ${i}`);
-});
+server.on('request', handler);
 
 const emit = server.emit;
 server.emit = (...args) => {
