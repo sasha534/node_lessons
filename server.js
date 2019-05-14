@@ -9,6 +9,8 @@ const handler = require('./handler');
   ../node_modules/handler
   ../../node_modules/handler
 3. NODE_PATH=. node server.js
+NODE_PATH=. node --inspect server.js
+chrome://inspect/#devices
 windows
   set NODE_PATH=. && node server.js
 
